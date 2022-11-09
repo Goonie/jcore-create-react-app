@@ -1,25 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Person from "./components/Person";
+import PersonList from "./components/PersonList";
 
 function App() {
+  const person = {
+    name: "Paul",
+    email: "paul@company.com",
+    photo: "https://randomuser.me/api/portraits/lego/1.jpg",
+  };
+
+  const persons = [
+    {
+      name: "Paul",
+      email: "paul@company.com",
+      photo: "https://randomuser.me/api/portraits/lego/1.jpg",
+    },
+    {
+      name: "Dennis",
+      email: "dennis@company.com",
+      photo: "https://randomuser.me/api/portraits/lego/2.jpg",
+    },
+    {
+      name: "Coen",
+      email: "coen@company.com",
+      photo: "https://randomuser.me/api/portraits/lego/3.jpg",
+    },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PersonList>
+      {/* Eerste voorbeeld: alles hard-coded in het component */}
+      {/* <Person /> */}
+
+      {/* Tweede voorbeeld: met props */}
+      <Person
+        name="Paul"
+        email="paul@company.com"
+        photo="https://randomuser.me/api/portraits/lego/1.jpg"
+      />
+
+      {/* Derde voorbeeld: vanuit object */}
+      <Person name={person.name} email={person.email} photo={person.photo} />
+
+      {/* Vierde voorbeeld: vanuit object, maar destructured */}
+      <Person {...person} />
+
+      {/* Vijfde voorbeeld: verzameling van objecten */}
+      {persons.map((person) => (
+        <Person {...person} />
+      ))}
+    </PersonList>
   );
 }
 
