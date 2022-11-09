@@ -7,7 +7,7 @@ interface PersonProps {
 function Person({ name, email, ...props }: PersonProps) {
   return (
     <article className="Person">
-      <img src={props.photo} alt="Paul's pretty face" />
+      <img src={props.photo} alt={name + "'s pretty face"} />
 
       <div className="info">
         <h1>{name}</h1>
