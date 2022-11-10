@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import Person from "./components/Person";
 import PersonList from "./components/PersonList";
@@ -47,7 +48,7 @@ function App() {
 
       {/* Vijfde voorbeeld: verzameling van objecten */}
       {persons.map((person) => (
-        <Person {...person} />
+        <Person key={person.email} {...person} />
       ))}
     </PersonList>
   );
